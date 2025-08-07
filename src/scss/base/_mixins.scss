@@ -1,0 +1,27 @@
+@use 'variables' as v;
+
+@mixin phone { //@content es para pasarle dinamicamente codigo
+    @media (min-width: v.$phone) {
+        @content; 
+    }
+}
+
+@mixin tablet { 
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop { //@content es para pasarle dinamicamente codigo
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXL { //@content es para pasarle dinamicamente codigo
+    @media (min-width: v.$desktopXL) {
+        @content; 
+    }
+}
+
+

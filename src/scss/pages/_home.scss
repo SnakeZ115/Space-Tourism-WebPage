@@ -1,0 +1,21 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.home {
+    background-image: url(../images/home/background-home-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    @include m.tablet {
+        background-image: url(../images/home/background-home-tablet.jpg);
+    }
+
+    @include m.desktop {
+        background-image: url(../images/home/background-home-desktop.jpg);
+    }
+}
+
+.main {
+    color: v.$white;
+}

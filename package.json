@@ -1,0 +1,33 @@
+{
+  "name": "space-tourism",
+  "version": "1.0.0",
+  "description": "Website about space exploration",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp",
+    "img": "gulp imgs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SnakeZ115/Space-Tourism-WebPage.git"
+  },
+  "keywords": [
+    "SASS",
+    "GULP",
+    "NPM",
+    "FrontEnd-Mentor",
+    "JS",
+    "HTML"
+  ],
+  "author": "José Antonio @SnakeZ115",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SnakeZ115/Space-Tourism-WebPage/issues"
+  },
+  "homepage": "https://github.com/SnakeZ115/Space-Tourism-WebPage#readme",
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.90.0"
+  }
+}
