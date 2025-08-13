@@ -2,18 +2,18 @@
 @use 'base/mixins' as m;
 
 .destination-page {
-    background-image: url(/dist/images/destination/background-destination-mobile.jpg);
+    background-image: url(../images/destination/background-destination-mobile.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
 
     @include m.tablet {
-        background-image: url(/dist/images/destination/background-destination-tablet.jpg);
+        background-image: url(../images/destination/background-destination-tablet.jpg);
     }
 
     @include m.desktop {
-        background-image: url(/dist/images/destination/background-destination-desktop.jpg);
+        background-image: url(../images/destination/background-destination-desktop.jpg);
     }
 }
 
