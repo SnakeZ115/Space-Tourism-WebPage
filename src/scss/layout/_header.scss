@@ -88,21 +88,6 @@
         color: v.$white;
         font-size: 2rem;
         transition: all 0.3s ease;
-        position: relative;
-            &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4rem;
-            width: 0;
-            height: 2px;
-            background-color: v.$white;
-            transition: width 0.3s ease;
-        }
-
-        &:hover::after {
-            width: 100%;
-        }
     }
 
     &.active {

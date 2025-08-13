@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../dist/css/app.css">
+    <link rel="icon" href="./images/favicon-32x32.png" type="image/png">
+    <title>Destination</title>
+</head>
+
+<body class="destination-page">
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="#" class="navbar-logo">
+                    <img src="./images/shared/logo.svg" alt="logo">
+                </a>
+                <button type="button" class="navbar-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="line"></div>
+                <ul class="navbar-menu">
+                    <li><a href="index.html">00 Home</a></li>
+                    <li><a href="">01 Destination</a></li>
+                    <li><a href="">02 Crew</a></li>
+                    <li><a href="">03 Technology</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="destination">
+        <div class="destination-content">
+            <h2> <span>01</span>  Pick your destination</h2>
+            <div class="destination-info">
+                <div class="destination-img">
+                    <img src="" alt="">
+                </div>
+                <div class="destination-text">
+                    <div class="menu">
+                        <button type="button" data-destination="Moon">Moon</button>
+                        <button type="button" data-destination="Mars">Mars</button>
+                        <button type="button" data-destination="Europa">Europa</button>
+                        <button type="button" data-destination="Titan">Titan</button>
+                    </div>
+                    <h1 class="destination-name">M</h1>
+                    <p class="destination-desc"></p>
+                    <div class="division"></div>
+                    <div class="destination-stadistics">
+                        <div class="distance">
+                            <h3>Avg. distance</h3>
+                            <p></p>
+                        </div>
+                        <div class="travel-time">
+                            <h3>Est. Travel Time</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const destinations = await getInfo();
+            updateDOM(destinations[0]); // Info about Moon
+        })
+    </script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

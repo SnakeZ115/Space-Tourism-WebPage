@@ -28,11 +28,19 @@ export function imgs() {
         .pipe(dest('dist/images'));
 }
 
+export function data() {
+    return src('src/data/data.json')
+        .pipe(dest('dist/data'));
+}
+
 
 export function dev() {
     watch('src/scss/**/*.scss', css) // habilitar modo watch para reflejar cambios inmediatamente. el ** indica que busque todos los archivos con extencion .scss
     watch('src/js/**/*.js', js) // lo mismo para javascript
     watch('src/*.html', html)
+    watch('src/data/*.json', data)
 }
 
-export default series( imgs, js, css, html, dev )
+export const build = series(data, imgs, js, css, html);
+
+export default series( data, imgs, js, css, html, dev )
