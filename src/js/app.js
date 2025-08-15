@@ -6,12 +6,21 @@ navbarToggle.addEventListener('click', () => {
     navbarMenu.classList.toggle('active');
 });
 
-async function getInfo() {
+async function getInfo(section) {
     const file = './data/data.json';
     const res = await fetch(file);
     const data = await res.json();
-    const { destinations } = data;
-    return destinations;
+    switch (section) {
+        case "destinations":
+            const { destinations } = data;
+            return destinations;
+        case "crew":
+            const { crew } = data;
+            return crew;
+        default:
+            break;
+    }
+
 }
 
 // Destination page
@@ -21,10 +30,10 @@ menuButtons.forEach(button => {
     button.addEventListener('click', async (event) => {
         event.preventDefault();
         const destination = button.dataset.destination;
-        const destinations = await getInfo();
+        const destinations = await getInfo("destinations");
         for (let i = 0; i < destinations.length; i++) {
             if(destinations[i].name === destination) {
-                updateDOM(destinations[i]);
+                updateDestination(destinations[i]);
                 break;
             }
         }
@@ -32,7 +41,7 @@ menuButtons.forEach(button => {
 });
 
 
-function updateDOM(destination) {
+function updateDestination(destination) {
 
     const destinationImg = document.querySelector('.destination-img img');
     destinationImg.src = destination.images.png;
@@ -49,4 +58,34 @@ function updateDOM(destination) {
 
     const destinationTravelTime = document.querySelector('.travel-time p');
     destinationTravelTime.textContent = destination.travel;
+
+}
+
+// Crew page
+
+const paginationButtons = document.querySelectorAll('.pagination span');
+paginationButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+        const activeButton = document.querySelector('.active');
+        activeButton.classList.remove('active');
+        button.classList.add('active');
+        const member = button.dataset.crew;
+        const members = await getInfo("crew");
+        updateMember(members[member]);
+    });
+});
+
+function updateMember(member) {
+    const memberRole = document.querySelector('.crew-role');
+    memberRole.textContent = member.role;
+
+    const memberName = document.querySelector('.crew-name');
+    memberName.textContent = member.name;
+
+    const memberBio = document.querySelector('.crew-desc');
+    memberBio.textContent = member.bio;
+
+    const memberImg = document.querySelector('.crew-img img')
+    memberImg.src = member.images.png;
+    memberImg.alt = `${member.name} image`;
 }

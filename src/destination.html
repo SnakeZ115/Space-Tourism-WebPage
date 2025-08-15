@@ -29,7 +29,7 @@
                 <ul class="navbar-menu">
                     <li><a href="index.html">00 Home</a></li>
                     <li><a href="">01 Destination</a></li>
-                    <li><a href="">02 Crew</a></li>
+                    <li><a href="crew.html">02 Crew</a></li>
                     <li><a href="">03 Technology</a></li>
                 </ul>
             </div>
@@ -69,8 +69,8 @@
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
-            const destinations = await getInfo();
-            updateDOM(destinations[0]); // Info about Moon
+            const destinations = await getInfo("destinations");
+            updateDestination(destinations[0]); // Info about Moon
         })
     </script>
     <script src="./js/app.js"></script>

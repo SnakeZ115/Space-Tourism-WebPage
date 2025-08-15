@@ -43,6 +43,7 @@
         text-transform: uppercase;
         letter-spacing: 0.15rem;
         font-weight: 400;
+        text-align: center;
         @include m.tablet {
             text-align: left;
             font-size: 2rem;
