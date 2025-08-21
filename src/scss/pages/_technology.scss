@@ -1,0 +1,175 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.technology-page {
+    background-image: url(../images/technology/background-technology-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+
+    @include m.tablet {
+        background-image: url(../images/technology/background-technology-tablet.jpg);
+    }
+
+    @include m.desktop {
+        background-image: url(../images/technology/background-technology-desktop.jpg);
+    }
+}
+
+.technology {
+    min-height: calc(100vh - 10rem);
+}
+
+.technology-content {
+    padding: 2.4rem 2.4rem 4.8rem 2.4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+    @include m.desktop {
+        padding: 4.8rem 0 4.8rem 15rem;
+    }
+    h2 {
+        width: 100%;
+        font-family: v.$Barlow-Condensed;
+        font-size: 1.6rem;
+        color: v.$white;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        font-weight: 400;
+        text-align: center;
+        @include m.tablet {
+            text-align: left;
+            font-size: 2rem;
+        }
+        @include m.desktop {
+            font-size: 2.8rem;
+        }
+    }
+    span {
+       color: rgba($color: v.$white, $alpha: 0.25);
+    }
+}
+
+.technology-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+    @include m.desktop {
+        flex-direction: row-reverse;
+    }
+}
+
+.technology-img {
+    height: 100%;
+    margin-top: 6.4rem;
+    object-fit: cover;
+    object-position: center;
+    width: calc(100% + 4.8rem);
+    @include m.desktop {
+        margin-top: 0;
+    }
+    img {
+        height: 25rem;
+        @include m.tablet {
+            height: 40rem;
+        }
+        @include m.desktop {
+            width: 60rem;
+            height: 60rem;
+            max-width: max-content;
+        }
+    }
+}
+
+.technology-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    @include m.desktop {
+        flex-direction: row;
+    }
+}
+
+.technology-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    @include m.desktop {
+        flex-direction: column;
+    }
+    span {
+        width: 4rem;
+        height: 4rem;
+        background-color: transparent;
+        border: 1px solid rgba($color: v.$white, $alpha: 0.25);
+        border-radius: 50%;
+        font-size: 1.8rem;
+        font-family: v.$Bellefair;
+        text-align: center;
+        color: v.$white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            border: 1px solid rgba($color: v.$white, $alpha: 1);
+        }
+        @include m.tablet {
+            width: 5.6rem;
+            height: 5.6rem;
+            font-size: 2.4rem;
+        }
+    }
+    .active {
+        background-color: v.$white;
+        color: black;
+    }
+}
+
+.technology-desc {
+    text-align: center;
+    color: v.$white;
+    @include m.tablet {
+        margin: 0 10rem;
+    }
+    @include m.desktop {
+        margin: 0;
+    }
+    span,
+    h1 {
+        font-family: v.$Bellefair;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+    span {
+        font-size: 1.8rem;
+        @include m.tablet {
+            font-size: 2.4rem;
+        }
+    }
+    h1 {
+        font-size: 2.4rem;
+        @include m.tablet {
+            font-size: 4rem;
+        }
+    }
+    p {
+        color: v.$secondary-color;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        font-family: v.$Barlow;
+        font-weight: 400;
+        @include m.tablet {
+            font-size: 1.6rem;
+        }
+    }
+}

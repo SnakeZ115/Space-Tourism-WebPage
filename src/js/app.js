@@ -17,11 +17,34 @@ async function getInfo(section) {
         case "crew":
             const { crew } = data;
             return crew;
+        case "technology":
+            const { technology } = data;
+            return technology;
         default:
             break;
     }
 
 }
+
+window.addEventListener('DOMContentLoaded', async () => {
+    const page = document.body.className;
+    switch (page) {
+        case "destination-page":
+            const destinations = await getInfo("destinations");
+            updateDestination(destinations[0]); // Info about Moon
+            break;
+        case "crew-page":
+            const crew = await getInfo("crew");
+            updateMember(crew[0]);
+            break;
+        case "technology-page":
+            const technology = await getInfo("technology");
+            updateTechnology(technology[0]);
+            break;
+        default:
+            break;
+    }
+});
 
 // Destination page
 
@@ -89,3 +112,47 @@ function updateMember(member) {
     memberImg.src = member.images.png;
     memberImg.alt = `${member.name} image`;
 }
+
+// Technology page
+
+const techPagination = document.querySelectorAll('.technology-pagination span');
+techPagination.forEach(button => {
+    button.addEventListener('click', async () => {
+        const activeButton = document.querySelector('.active');
+        activeButton.classList.remove('active');
+        button.classList.add('active');
+        const tech = button.dataset.tech;
+        const techs = await getInfo("technology");
+        updateTechnology(techs[tech]);
+    });
+});
+
+function updateTechnology(technology) {
+    const technologyImg = document.querySelector('.technology-img img');
+    const mq = window.matchMedia("(min-width: 1024px)"); // media querie for js
+    if(mq.matches) {
+        technologyImg.src = technology.images.portrait;
+    } else {
+        technologyImg.src = technology.images.landscape;
+    }
+    technologyImg.alt = `${technology.name} image`;
+
+    const technologyName = document.querySelector('.technology-desc h1');
+    technologyName.textContent = technology.name;
+
+    const technologyDesc = document.querySelector('.technology-desc p');
+    technologyDesc.textContent = technology.description;
+}
+
+const mq = window.matchMedia("(min-width: 1200px)");
+
+mq.addEventListener("change", async (e) => {
+    const active = document.querySelector('.active');
+    const data = await getInfo("technology");
+    const img = document.querySelector('.technology-img img');
+    if (e.matches) {
+        img.src = data[active.dataset.tech].images.portrait;
+    } else {
+        img.src = data[active.dataset.tech].images.landscape;
+    }
+});
