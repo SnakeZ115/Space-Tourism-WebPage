@@ -52,6 +52,10 @@ const menuButtons = document.querySelectorAll('.menu button');
 menuButtons.forEach(button => {
     button.addEventListener('click', async (event) => {
         event.preventDefault();
+        const activeButton = document.querySelector('button.active');
+        console.log(activeButton);
+        activeButton.classList.remove('active');
+        button.classList.add('active');
         const destination = button.dataset.destination;
         const destinations = await getInfo("destinations");
         for (let i = 0; i < destinations.length; i++) {
@@ -89,7 +93,7 @@ function updateDestination(destination) {
 const paginationButtons = document.querySelectorAll('.pagination span');
 paginationButtons.forEach(button => {
     button.addEventListener('click', async () => {
-        const activeButton = document.querySelector('.active');
+        const activeButton = document.querySelector('span.active');
         activeButton.classList.remove('active');
         button.classList.add('active');
         const member = button.dataset.crew;

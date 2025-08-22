@@ -129,6 +129,7 @@
     align-items: center;
     @include m.desktop {
         justify-content: flex-start;
+        gap: 3rem;
     }
     button {
         border: none;
@@ -140,6 +141,29 @@
         letter-spacing: 0.15em;
         text-transform: uppercase;
         cursor: pointer;
+        position: relative;
+        padding: 0;
+        &::after {
+            position: absolute;
+            content: "";
+            top: auto;
+            bottom: -1px;
+            right: 0;
+            width: 0;
+            height: 3px;
+            background-color: rgba($color: v.$white, $alpha: 0.25);
+            opacity: 1;
+            transition: width 0.3s ease;
+        }
+        
+        &:hover::after {
+            width: 100%;
+        }
+
+        &.active::after {
+            width: 100%;
+            background-color: rgba($color: v.$white, $alpha: 1);
+        }
         @include m.tablet {
             font-size: 1.6rem;
         }

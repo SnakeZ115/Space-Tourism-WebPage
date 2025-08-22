@@ -87,7 +87,9 @@
     .explore {
         display: grid;
         place-items: center;
-        button {
+        a {
+            display: grid;
+            place-items: center;
             border: none;
             width: 14.4rem;
             height: 14.4rem;
