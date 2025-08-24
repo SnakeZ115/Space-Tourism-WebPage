@@ -145,7 +145,7 @@ function updateTechnology(technology) {
     }
     technologyImg.alt = `${technology.name} image`;
 
-    const technologyName = document.querySelector('.technology-desc h1');
+    const technologyName = document.querySelector('.technology-desc h2');
     technologyName.textContent = technology.name;
 
     const technologyDesc = document.querySelector('.technology-desc p');
