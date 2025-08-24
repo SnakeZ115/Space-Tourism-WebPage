@@ -1,19 +1,23 @@
 import gulpSass from 'gulp-sass'
 import * as dartSass from 'sass'
 import { src, dest, watch, series } from 'gulp'
+import terser from 'gulp-terser';
 
 const sass = gulpSass(dartSass); // compilar sass con gulpsass
 
 export function js( done ) {
     src('src/js/app.js')
+        .pipe(terser())
         .pipe(dest('dist/js')) // hace una copia del archivo y la lleva al destino
     done()
 }
 
 export function css( done ) {
     src('src/scss/app.scss', {sourcemaps: true})
-        .pipe( sass().on('error', sass.logError) )
-        .pipe( dest('dist/css',  {sourcemaps: true}) ) // sabe en que archivo scss esta algun elemento
+        .pipe( sass({
+            style: 'compressed'
+        }).on('error', sass.logError) )
+        .pipe( dest('dist/css',  {sourcemaps: '.'}) ) // sabe en que archivo scss esta algun elemento
     done()
 }
 

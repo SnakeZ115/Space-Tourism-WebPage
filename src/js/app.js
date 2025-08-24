@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     switch (page) {
         case "destination-page":
             const destinations = await getInfo("destinations");
-            updateDestination(destinations[0]); // Info about Moon
+            updateDestination(destinations[0]);
             break;
         case "crew-page":
             const crew = await getInfo("crew");
@@ -70,9 +70,11 @@ menuButtons.forEach(button => {
 
 function updateDestination(destination) {
 
-    const destinationImg = document.querySelector('.destination-img img');
-    destinationImg.src = destination.images.png;
-    destinationImg.alt = `${destination.name} image`;
+    const destinationImg = document.querySelector('.destination-img');
+    destinationImg.innerHTML = `
+        <source srcset="${destination.images.webp}" type="image/webp">
+        <img src="${destination.images.png}" alt="${destination.name} image">
+    `;
     
     const destinationName = document.querySelector('.destination-name');
     destinationName.textContent = destination.name;
@@ -112,9 +114,11 @@ function updateMember(member) {
     const memberBio = document.querySelector('.crew-desc');
     memberBio.textContent = member.bio;
 
-    const memberImg = document.querySelector('.crew-img img')
-    memberImg.src = member.images.png;
-    memberImg.alt = `${member.name} image`;
+    const memberImg = document.querySelector('.crew-img');
+    memberImg.innerHTML = `
+        <source srcset="${member.images.webp}" type="image/webp">
+        <img src="${member.images.png}" alt="${member.name} image">
+    `;
 }
 
 // Technology page
@@ -122,7 +126,7 @@ function updateMember(member) {
 const techPagination = document.querySelectorAll('.technology-pagination span');
 techPagination.forEach(button => {
     button.addEventListener('click', async () => {
-        const activeButton = document.querySelector('.active');
+        const activeButton = document.querySelector('span.active');
         activeButton.classList.remove('active');
         button.classList.add('active');
         const tech = button.dataset.tech;
@@ -133,7 +137,7 @@ techPagination.forEach(button => {
 
 function updateTechnology(technology) {
     const technologyImg = document.querySelector('.technology-img img');
-    const mq = window.matchMedia("(min-width: 1024px)"); // media querie for js
+    const mq = window.matchMedia("(min-width: 1200px)"); // media querie for js
     if(mq.matches) {
         technologyImg.src = technology.images.portrait;
     } else {

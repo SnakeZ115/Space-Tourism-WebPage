@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FrontEnd Mentor Challenge about space">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
@@ -17,10 +18,10 @@
     <header class="header">
         <nav class="navbar">
             <div class="navbar-container">
-                <a href="#" class="navbar-logo">
-                    <img src="./images/shared/logo.svg" alt="logo">
+                <a href="index.html" class="navbar-logo">
+                    <img width="48" height="48" src="./images/shared/logo.svg" alt="logo">
                 </a>
-                <button type="button" class="navbar-toggle">
+                <button type="button" class="navbar-toggle" aria-label="navbar menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -38,11 +39,9 @@
 
     <main class="destination">
         <div class="destination-content">
-            <h2> <span>01</span>  Pick your destination</h2>
+            <h1> <span>01</span>  Pick your destination</h1>
             <div class="destination-info">
-                <div class="destination-img">
-                    <img src="" alt="">
-                </div>
+                <picture class="destination-img"></picture>
                 <div class="destination-text">
                     <div class="menu">
                         <button type="button" data-destination="Moon" class="active">Moon</button>
@@ -50,7 +49,7 @@
                         <button type="button" data-destination="Europa">Europa</button>
                         <button type="button" data-destination="Titan">Titan</button>
                     </div>
-                    <h1 class="destination-name">M</h1>
+                    <h2 class="destination-name">M</h2>
                     <p class="destination-desc"></p>
                     <div class="division"></div>
                     <div class="destination-stadistics">

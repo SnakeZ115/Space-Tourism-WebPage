@@ -35,80 +35,82 @@
         grid-template-rows: none;
         grid-template-columns: 1fr 1fr;
     }
-    .texts {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 2.4rem;
+}
+
+.texts {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    @include m.tablet {
+        width: 51.2rem;
+        margin: 0 auto;
+    }
+    @include m.desktop {
+        text-align: left;
+        margin: auto;
+    }
+    span {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        color: v.$secondary_color;
+        font-family: v.$Barlow-Condensed;
+        font-weight: 400;
+        letter-spacing: 0.15rem;
+        margin: 0;
         @include m.tablet {
-            width: 51.2rem;
-            margin: 0 auto;
-        }
-        @include m.desktop {
-            text-align: left;
-            margin: auto;
-        }
-        span {
-            font-size: 1.6rem;
-            text-transform: uppercase;
-            color: v.$secondary_color;
-            font-family: v.$Barlow-Condensed;
-            font-weight: 400;
-            letter-spacing: 0.15rem;
-            margin: 0;
-            @include m.tablet {
-                font-size: 2.8rem;
-            }
-        }
-        h1 {
-            display: block;
-            font-size: 8rem;
-            text-transform: uppercase;
-            color: v.$white;
-            font-family: v.$Bellefair;
-            font-weight: 400;
-            margin: 0;
-            @include m.tablet {
-                font-size: 14.4rem;
-            }
-        }
-        p {
-            margin: 0;
-            font-size: 1.5rem;
-            font-family: v.$Barlow;
-            line-height: 1.8;
-            color: v.$secondary_color;
-            font-weight: 400;
-            @include m.tablet {
-                font-size: 1.6rem;
-            }
+            font-size: 2.8rem;
         }
     }
-    .explore {
+    h1 {
+        display: block;
+        font-size: 8rem;
+        text-transform: uppercase;
+        color: v.$white;
+        font-family: v.$Bellefair;
+        font-weight: 400;
+        margin: 0;
+        @include m.tablet {
+            font-size: 14.4rem;
+        }
+    }
+    p {
+        margin: 0;
+        font-size: 1.5rem;
+        font-family: v.$Barlow;
+        line-height: 1.8;
+        color: v.$secondary_color;
+        font-weight: 400;
+        @include m.tablet {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.explore {
+    display: grid;
+    place-items: center;
+    a {
         display: grid;
         place-items: center;
-        a {
-            display: grid;
-            place-items: center;
-            border: none;
-            width: 14.4rem;
-            height: 14.4rem;
-            color: v.$primary_color;
-            background-color: v.$white;
-            border-radius: 50%;
-            font-family: v.$Bellefair;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            transition: box-shadow 0.3s ease-in;
-            cursor: pointer;
-            @include m.tablet {
-                width: 27.2rem;
-                height: 27.2rem;
-                font-size: 3.2rem;
-            }
-            &:hover {
-                box-shadow: 0 0 10rem rgba($color: v.$white, $alpha: 1.0);
-            }
+        border: none;
+        width: 14.4rem;
+        height: 14.4rem;
+        color: v.$primary_color;
+        background-color: v.$white;
+        border-radius: 50%;
+        font-family: v.$Bellefair;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        transition: box-shadow 0.3s ease-in;
+        cursor: pointer;
+        @include m.tablet {
+            width: 27.2rem;
+            height: 27.2rem;
+            font-size: 3.2rem;
+        }
+        &:hover {
+           box-shadow: 0 0 10rem rgba($color: v.$white, $alpha: 1.0);
         }
     }
 }
